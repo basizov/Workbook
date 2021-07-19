@@ -1,19 +1,39 @@
-# client-side
+# Workbook
 
-## Project setup
-```
-npm install
-```
+Этот проект будет разработан при помощи технологии .Net Core и Vue JS.
+Проект создан с целью замены бумажных носителей на электронные. То есть замена тетрадей на электронный аналог.
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+## Ход запуска приложения
 
-### Compiles and minifies for production
-```
-npm run build
-```
+1. Заходим в папку 'cd API/'
+1. Выполняем команду 'dotnet run'
+1. Заходим в папку 'cd ../client-app/'
+1. Выполняем команду 'npm run serve'
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## Доступные команды
+
+В каталоге проекта вы можете запустить:
+
+### `dotnet run`
+
+Это удобное средство для запуска приложения из исходного кода одной командой.
+
+### `dotnet watch run`
+
+'watch' - следит за изменениями в приложение. Помогает при разработке приложения.
+
+### `dotnet build`
+
+Выполняет сборку проекта и его зависимостей в набор двоичных файлов. Эти двоичные файлы содержат код проекта в виде файлов на промежуточном языке (IL) с расширением DLL.
+
+### `dotnet ef add migrations {Name} -p Persistence -s API`
+
+При изменении моделей приложения, следует приминить данную команду для коректной работы приложения, для изменения данных БД.
+
+### `npm run serve`
+
+Выполняет запуск Vue приложения.
+
+## Разработчик
+
+borissizov [Github account](https://github.com/borissizov).

@@ -1,5 +1,5 @@
 <template>
-  <home />
+  <router-view class="container" />
 </template>
 
 <script lang='ts'>
@@ -9,7 +9,3 @@
     name: 'App'
   });
 </script>
-
-<style lang='scss' scoped>
-
-</style>

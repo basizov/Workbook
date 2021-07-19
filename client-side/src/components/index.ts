@@ -1,5 +1,5 @@
-import Home from './Home.vue';
+import WorkbookGrid from './elements/home/WorkbookGrid.vue';
 
 export default  [
-  Home
+  WorkbookGrid
 ];
