@@ -14,51 +14,25 @@
       :style="{
         'top': inp.top,
         'left': inp.left,
-        'width': `${inp.value.length === 0 ? .1 : 1 * inp.value.length}ch`
+        'width': `${inp.value.length === 0 ? .1 : inp.value.length}ch`
       }"
       v-model:modelValue="inp.value"
-      @change="changeInputText"
+      @input="changeInputText"
     />
   </section>
 </template>
 
 <script lang='ts'>
   import { defineComponent, ref } from "vue";
-
-  interface IInput {
-    id: string,
-    top: string;
-    left: string;
-    value: string;
-  }
+  import useCellClick from './hooks/useCellClick';
+  import useCellChange from './hooks/useCellChange';
 
   export default defineComponent({
     name: 'WorkbookGrid',
     setup() {
-      const grid = ref<HTMLDivElement | null>(null);
-      const inputs = ref<IInput[]>([]);
-      const startWriting = (e: MouseEvent) => {
-        let   x = e.clientX;
-        let   y = e.clientY;
-        const element = document.elementFromPoint(x, y);
-
-        if (grid.value && (!element || element.classList.contains('page-item'))) {
-          const pos = grid.value.getBoundingClientRect();
-
-          x -= pos.left;
-          y -= pos.top;
-          inputs.value.push({
-            id: Date.now.toString(),
-            top: `${y}px`,
-            left: `${x}px`,
-            value: ''
-          });
-        }
-      };
-      const changeInputText = (e: InputEvent) => {
-        
-      };
-      const side = 15;
+      const { grid, inputs, startWriting } = useCellClick();
+      const { changeInputText } = useCellChange(grid, inputs);
+      const side = ref<number>(15);
 
       return {
         startWriting,
@@ -113,3 +87,7 @@
     }
   }
 </style>
+
+function useCellClick(): {} {
+  throw new Error("Function not implemented.");
+}
